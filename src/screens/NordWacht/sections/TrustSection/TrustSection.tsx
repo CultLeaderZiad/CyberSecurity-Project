@@ -1,47 +1,48 @@
 export const TrustSection = (): JSX.Element => {
     const sectors = [
-        { name: "Finance", description: "Regulated financial institutions" },
-        { name: "SaaS", description: "Cloud-native platforms" },
-        { name: "Healthcare", description: "HIPAA-compliant systems" },
-        { name: "E-commerce", description: "Payment processing systems" },
-        { name: "Infrastructure", description: "DevOps and cloud operations" },
+        "Finance",
+        "SaaS",
+        "Healthcare",
+        "E-commerce",
+        "DevOps",
     ];
 
     return (
-        <section className="relative w-full py-24 px-8 border-t border-neutral-800">
-            <div className="max-w-6xl mx-auto">
-                <div className="mb-16 space-y-4">
-                    <p className="text-[#54f4fc] text-sm uppercase tracking-widest font-semibold">
-                        NordWacht Partners
-                    </p>
-                    <h2 className="text-4xl font-bold">
-                        Operating in Regulated and High-Risk Environments
+        <section className="relative w-full py-32 px-8 bg-black overflow-hidden" id="trust">
+            {/* Grid Pattern in background */}
+            <div
+                className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                style={{
+                    backgroundImage: `linear-gradient(#ffffff0a 1px, transparent 1px), linear-gradient(90deg, #ffffff0a 1px, transparent 1px)`,
+                    backgroundSize: '40px 40px'
+                }}
+            />
+
+            <div className="max-w-7xl mx-auto flex flex-col items-center">
+                <div className="flex flex-col items-center mb-24 space-y-8 text-center">
+                    <div className="inline-block px-4 py-1.5 rounded-full border border-[#54f4fc]/50 bg-[#54f4fc]/10 text-[#54f4fc] text-[10px] font-bold tracking-[0.2em] uppercase">
+                        Sector Coverage
+                    </div>
+                    <h2 className="text-3xl font-bold max-w-2xl text-white tracking-tight leading-tight">
+                        Trusted by teams operating in <br className="hidden md:block" />
+                        <span className="text-white/80">regulated and high-risk environments</span>
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 w-full">
                     {sectors.map((sector) => (
                         <div
-                            key={sector.name}
-                            className="flex flex-col items-center text-center space-y-4 p-6 border border-neutral-800 rounded-lg bg-neutral-950 hover:border-[#54f4fc]/50 transition-colors duration-300 group"
+                            key={sector}
+                            className="group relative flex flex-col items-center justify-center h-24 md:h-32 p-6 border border-white/5 rounded-xl bg-neutral-950/40 hover:border-[#54f4fc]/30 transition-all duration-500 overflow-hidden"
                         >
-                            <div className="w-16 h-16 rounded-lg bg-neutral-900 border border-neutral-700 flex items-center justify-center group-hover:border-[#54f4fc]">
-                                <span className="text-2xl font-bold text-neutral-400 group-hover:text-[#54f4fc]">
-                                    {sector.name.charAt(0)}
-                                </span>
-                            </div>
-                            <div className="space-y-2">
-                                <h3 className="font-semibold text-lg group-hover:text-[#54f4fc]">{sector.name}</h3>
-                                <p className="text-sm text-neutral-400">{sector.description}</p>
-                            </div>
+                            {/* Subtle hover glow */}
+                            <div className="absolute inset-0 opacity-0 group-hover:opacity-10 bg-[radial-gradient(circle_at_center,rgba(84,244,252,1)_0%,transparent_70%)] transition-opacity" />
+
+                            <span className="text-xs uppercase tracking-[0.4em] font-bold text-white/40 group-hover:text-[#54f4fc] transition-colors duration-500">
+                                {sector}
+                            </span>
                         </div>
                     ))}
-                </div>
-
-                <div className="mt-16 pt-16 border-t border-neutral-800">
-                    <p className="text-neutral-400 text-center text-sm">
-                        Trusted by teams operating in regulated and high-risk environments with <span className="text-[#54f4fc]">NordWacht</span> precision.
-                    </p>
                 </div>
             </div>
         </section>

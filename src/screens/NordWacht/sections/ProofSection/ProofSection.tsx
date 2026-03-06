@@ -1,72 +1,84 @@
+import { CheckCircle2 } from "lucide-react";
+
 export const ProofSection = (): JSX.Element => {
     const certifications = [
-        { name: "ISO 27001", category: "Certifications" },
-        { name: "SOC 2 Type II", category: "Certifications" },
+        { name: "ISO/IEC 27001", type: "Certification" },
+        { name: "SOC 2 Type II", type: "Certification" },
     ];
 
     const frameworks = [
-        { name: "NIST Cybersecurity Framework", category: "Frameworks" },
-        { name: "OWASP Top 10", category: "Frameworks" },
-        { name: "CIS Controls", category: "Frameworks" },
+        { name: "NIST Cybersecurity Framework", type: "Framework" },
+        { name: "OWASP Top 10", type: "Framework" },
+        { name: "CIS Critical Security Controls", type: "Framework" },
     ];
 
     return (
-        <section className="relative w-full py-24 px-8 border-t border-neutral-800">
-            <div className="max-w-6xl mx-auto">
-                <div className="mb-16 space-y-4">
-                    <p className="text-[#54f4fc] text-sm uppercase tracking-widest font-semibold">
-                        NordWacht Standards
-                    </p>
-                    <h2 className="text-4xl font-bold max-w-2xl text-white">
-                        Industry-Recognized <span className="text-[#54f4fc]">Frameworks</span>
+        <section className="relative w-full py-32 px-8 bg-black border-t border-white/5" id="standards">
+            <div className="max-w-7xl mx-auto flex flex-col items-center">
+                <div className="mb-24 space-y-8 text-center">
+                    <h2 className="text-5xl font-bold tracking-tight text-white flex flex-col items-center gap-4">
+                        Standards & <span className="text-[#54f4fc]">Compliance</span>
+                        <div className="h-1.5 w-32 bg-[#54f4fc] rounded-full mx-auto" />
                     </h2>
+                    <p className="text-white/40 max-w-2xl mx-auto text-sm font-medium">
+                        Auditable processes and frameworks verified against world-class security standards.
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div className="space-y-6">
-                        <div className="space-y-3">
-                            <h3 className="text-sm uppercase tracking-widest text-[#54f4fc]/60">
-                                Certifications
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 w-full">
+                    {/* Certifications column */}
+                    <div className="space-y-12">
+                        <div className="flex items-center gap-4 border-l-2 border-[#54f4fc] pl-6 h-8">
+                            <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-[#54f4fc]/60">
+                                Formal Certifications
                             </h3>
-                            <div className="space-y-3">
-                                {certifications.map((cert) => (
-                                    <div
-                                        key={cert.name}
-                                        className="p-4 border border-neutral-800 rounded bg-neutral-950 hover:border-[#54f4fc]/30 hover:bg-[#54f4fc]/5 transition-all duration-300 group"
-                                    >
-                                        <p className="font-semibold text-white group-hover:text-[#54f4fc] transition-colors">{cert.name}</p>
+                        </div>
+                        <div className="space-y-4">
+                            {certifications.map((item) => (
+                                <div
+                                    key={item.name}
+                                    className="group flex items-center justify-between p-7 border border-white/5 rounded-xl bg-neutral-950/40 hover:border-[#54f4fc]/40 transition-all duration-500 overflow-hidden relative"
+                                >
+                                    <div className="flex items-center gap-6">
+                                        <CheckCircle2 className="w-6 h-6 text-[#54f4fc] opacity-40 group-hover:opacity-100 transition-opacity" />
+                                        <p className="text-xl font-bold text-white tracking-tight">{item.name}</p>
                                     </div>
-                                ))}
-                            </div>
+                                    <div className="hidden md:block px-4 py-1 rounded-full border border-white/10 bg-white/5 text-[9px] font-black uppercase tracking-[0.15em] text-white/30 group-hover:border-[#54f4fc]/30 group-hover:text-[#54f4fc]/50 transition-all">
+                                        {item.type}
+                                    </div>
+                                    {/* Subtle hover glow bar */}
+                                    <div className="absolute inset-y-0 left-0 w-1 bg-[#54f4fc] -translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
+                                </div>
+                            ))}
                         </div>
                     </div>
 
-                    <div className="space-y-6">
-                        <div className="space-y-3">
-                            <h3 className="text-sm uppercase tracking-widest text-[#54f4fc]/60">
-                                Frameworks
+                    {/* Frameworks column */}
+                    <div className="space-y-12">
+                        <div className="flex items-center gap-4 border-l-2 border-[#54f4fc] pl-6 h-8">
+                            <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-[#54f4fc]/60">
+                                Framework Alignment
                             </h3>
-                            <div className="space-y-3">
-                                {frameworks.map((framework) => (
-                                    <div
-                                        key={framework.name}
-                                        className="p-4 border border-neutral-800 rounded bg-neutral-950 hover:border-[#54f4fc]/30 hover:bg-[#54f4fc]/5 transition-all duration-300 group"
-                                    >
-                                        <p className="font-semibold text-white group-hover:text-[#54f4fc] transition-colors">{framework.name}</p>
+                        </div>
+                        <div className="space-y-4">
+                            {frameworks.map((item) => (
+                                <div
+                                    key={item.name}
+                                    className="group flex items-center justify-between p-7 border border-white/5 rounded-xl bg-neutral-950/40 hover:border-[#54f4fc]/40 transition-all duration-500 overflow-hidden relative"
+                                >
+                                    <div className="flex items-center gap-6">
+                                        <CheckCircle2 className="w-6 h-6 text-[#54f4fc] opacity-40 group-hover:opacity-100 transition-opacity" />
+                                        <p className="text-xl font-bold text-white tracking-tight">{item.name}</p>
                                     </div>
-                                ))}
-                            </div>
+                                    <div className="hidden md:block px-4 py-1 rounded-full border border-white/10 bg-white/5 text-[9px] font-black uppercase tracking-[0.15em] text-white/30 group-hover:border-[#54f4fc]/30 group-hover:text-[#54f4fc]/50 transition-all">
+                                        {item.type}
+                                    </div>
+                                    {/* Subtle hover glow bar */}
+                                    <div className="absolute inset-y-0 left-0 w-1 bg-[#54f4fc] -translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
+                                </div>
+                            ))}
                         </div>
                     </div>
-                </div>
-
-                <div className="mt-12 pt-12 border-t border-neutral-800 space-y-4">
-                    <p className="text-neutral-300">
-                        <span className="font-semibold text-[#54f4fc]">Aligned with industry security frameworks</span>
-                    </p>
-                    <p className="text-neutral-400">
-                        Auditable processes and documented controls ensure compliance and transparency with <span className="text-[#54f4fc]">NordWacht</span> protocols.
-                    </p>
                 </div>
             </div>
         </section>
