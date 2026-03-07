@@ -8,14 +8,6 @@ import { FooterSection } from "./sections/FooterSection/FooterSection";
 export const ProveLanding = (): JSX.Element => {
   return (
     <div className="bg-black overflow-hidden w-full relative text-white">
-      <button
-        className="fixed top-4 right-4 z-50 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-        onClick={() => {
-          throw new Error("This is your first Sentry error!");
-        }}
-      >
-        Break the world
-      </button>
       <HeroSection />
       <TrustSection />
       <CapabilitiesSection />
